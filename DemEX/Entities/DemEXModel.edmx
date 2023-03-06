@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище DemEXModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "DemEX.dbo.Activity" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Activity">
+          <Property Name="Number" Type="tinyint" />
+          <Property Name="Name_of_the_event" Type="nvarchar" MaxLength="100" />
+          <Property Name="Start_date" Type="nvarchar" MaxLength="50" />
+          <Property Name="Days" Type="tinyint" />
+          <Property Name="Activity" Type="nvarchar" MaxLength="50" />
+          <Property Name="Day" Type="tinyint" />
+          <Property Name="Start_time" Type="time" Precision="7" />
+          <Property Name="Moderator" Type="nvarchar" MaxLength="50" />
+          <Property Name="Jury_1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Jury_2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Jury_3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Jury_4" Type="nvarchar" MaxLength="50" />
+          <Property Name="Jury_5" Type="nvarchar" MaxLength="50" />
+          <Property Name="Winner" Type="nvarchar" MaxLength="50" />
+          <Property Name="column15" Type="nvarchar" MaxLength="1" />
+        </EntityType>-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DemEX.dbo.City" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Number" />
+            <PropertyRef Name="Country" />
+          </Key>
+          <Property Name="Number" Type="smallint" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DemEX.dbo.Country" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="The_name_of_the_country" />
+            <PropertyRef Name="English_name" />
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Code2" />
+          </Key>
+          <Property Name="The_name_of_the_country" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="English_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code2" Type="smallint" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DemEX.dbo.Events" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="Number" />
+            <PropertyRef Name="Events" />
+            <PropertyRef Name="DATE" />
+            <PropertyRef Name="DAYS" />
+            <PropertyRef Name="CITY" />
+          </Key>
+          <Property Name="Number" Type="tinyint" Nullable="false" />
+          <Property Name="Events" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DATE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DAYS" Type="tinyint" Nullable="false" />
+          <Property Name="CITY" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DemEX.dbo.Jury" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Jury">
+          <Key>
+            <PropertyRef Name="Firstname" />
+            <PropertyRef Name="Secondname" />
+            <PropertyRef Name="Patronymic" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="Mail" />
+            <PropertyRef Name="Date_of_birthday" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="Phone" />
+            <PropertyRef Name="Direction" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="Photo" />
+          </Key>
+          <Property Name="Firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Secondname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date_of_birthday" Type="date" Nullable="false" />
+          <Property Name="Country" Type="tinyint" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Direction" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DemEX.dbo.Members" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="Firstname" />
+            <PropertyRef Name="Secondname" />
+            <PropertyRef Name="Patronymic" />
+            <PropertyRef Name="Mail" />
+            <PropertyRef Name="Date_of_birthday" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="Phone" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="Photo" />
+            <PropertyRef Name="Gender" />
+          </Key>
+          <Property Name="Firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Secondname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date_of_birthday" Type="date" Nullable="false" />
+          <Property Name="Country" Type="tinyint" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DemEX.dbo.Moderators" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Moderators">
+          <Key>
+            <PropertyRef Name="Firstname" />
+            <PropertyRef Name="Secondname" />
+            <PropertyRef Name="Patronymic" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="Mail" />
+            <PropertyRef Name="Daye_of_birthday" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="Phone" />
+            <PropertyRef Name="Direction" />
+            <PropertyRef Name="Events" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="Photo" />
+          </Key>
+          <Property Name="Firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Secondname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Daye_of_birthday" Type="date" Nullable="false" />
+          <Property Name="Country" Type="tinyint" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Direction" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Events" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "DemEX.dbo.Organizer" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Organizer">
+          <Key>
+            <PropertyRef Name="Firstname" />
+            <PropertyRef Name="Secondname" />
+            <PropertyRef Name="Patronymic" />
+            <PropertyRef Name="Mail" />
+            <PropertyRef Name="Date_of_birthday" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="Phone" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="Photo" />
+            <PropertyRef Name="Gender" />
+          </Key>
+          <Property Name="Firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Secondname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date_of_birthday" Type="date" Nullable="false" />
+          <Property Name="Country" Type="tinyint" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Хранилище DemEXModelContainer">
+          <EntitySet Name="City" EntityType="Self.City" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [City].[Number] AS [Number], 
+    [City].[Country] AS [Country]
+    FROM [dbo].[City] AS [City]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Country" EntityType="Self.Country" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Country].[The_name_of_the_country] AS [The_name_of_the_country], 
+    [Country].[English_name] AS [English_name], 
+    [Country].[Code] AS [Code], 
+    [Country].[Code2] AS [Code2]
+    FROM [dbo].[Country] AS [Country]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Events" EntityType="Self.Events" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Events].[Number] AS [Number], 
+    [Events].[Events] AS [Events], 
+    [Events].[DATE] AS [DATE], 
+    [Events].[DAYS] AS [DAYS], 
+    [Events].[CITY] AS [CITY]
+    FROM [dbo].[Events] AS [Events]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Jury" EntityType="Self.Jury" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Jury].[Firstname] AS [Firstname], 
+    [Jury].[Secondname] AS [Secondname], 
+    [Jury].[Patronymic] AS [Patronymic], 
+    [Jury].[Gender] AS [Gender], 
+    [Jury].[Mail] AS [Mail], 
+    [Jury].[Date_of_birthday] AS [Date_of_birthday], 
+    [Jury].[Country] AS [Country], 
+    [Jury].[Phone] AS [Phone], 
+    [Jury].[Direction] AS [Direction], 
+    [Jury].[Password] AS [Password], 
+    [Jury].[Photo] AS [Photo]
+    FROM [dbo].[Jury] AS [Jury]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Members" EntityType="Self.Members" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Members].[Firstname] AS [Firstname], 
+    [Members].[Secondname] AS [Secondname], 
+    [Members].[Patronymic] AS [Patronymic], 
+    [Members].[Mail] AS [Mail], 
+    [Members].[Date_of_birthday] AS [Date_of_birthday], 
+    [Members].[Country] AS [Country], 
+    [Members].[Phone] AS [Phone], 
+    [Members].[Password] AS [Password], 
+    [Members].[Photo] AS [Photo], 
+    [Members].[Gender] AS [Gender]
+    FROM [dbo].[Members] AS [Members]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Moderators" EntityType="Self.Moderators" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Moderators].[Firstname] AS [Firstname], 
+    [Moderators].[Secondname] AS [Secondname], 
+    [Moderators].[Patronymic] AS [Patronymic], 
+    [Moderators].[Gender] AS [Gender], 
+    [Moderators].[Mail] AS [Mail], 
+    [Moderators].[Daye_of_birthday] AS [Daye_of_birthday], 
+    [Moderators].[Country] AS [Country], 
+    [Moderators].[Phone] AS [Phone], 
+    [Moderators].[Direction] AS [Direction], 
+    [Moderators].[Events] AS [Events], 
+    [Moderators].[Password] AS [Password], 
+    [Moderators].[Photo] AS [Photo]
+    FROM [dbo].[Moderators] AS [Moderators]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Organizer" EntityType="Self.Organizer" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Organizer].[Firstname] AS [Firstname], 
+    [Organizer].[Secondname] AS [Secondname], 
+    [Organizer].[Patronymic] AS [Patronymic], 
+    [Organizer].[Mail] AS [Mail], 
+    [Organizer].[Date_of_birthday] AS [Date_of_birthday], 
+    [Organizer].[Country] AS [Country], 
+    [Organizer].[Phone] AS [Phone], 
+    [Organizer].[Password] AS [Password], 
+    [Organizer].[Photo] AS [Photo], 
+    [Organizer].[Gender] AS [Gender]
+    FROM [dbo].[Organizer] AS [Organizer]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DemEXModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Number" />
+            <PropertyRef Name="Country" />
+          </Key>
+          <Property Name="Number" Type="Int16" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="The_name_of_the_country" />
+            <PropertyRef Name="English_name" />
+            <PropertyRef Name="Code" />
+            <PropertyRef Name="Code2" />
+          </Key>
+          <Property Name="The_name_of_the_country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="English_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Code2" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="Number" />
+            <PropertyRef Name="Events1" />
+            <PropertyRef Name="DATE" />
+            <PropertyRef Name="DAYS" />
+            <PropertyRef Name="CITY" />
+          </Key>
+          <Property Name="Number" Type="Byte" Nullable="false" />
+          <Property Name="Events1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DAYS" Type="Byte" Nullable="false" />
+          <Property Name="CITY" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jury">
+          <Key>
+            <PropertyRef Name="Firstname" />
+            <PropertyRef Name="Secondname" />
+            <PropertyRef Name="Patronymic" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="Mail" />
+            <PropertyRef Name="Date_of_birthday" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="Phone" />
+            <PropertyRef Name="Direction" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="Photo" />
+          </Key>
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Secondname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_of_birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Country" Type="Byte" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Direction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="Firstname" />
+            <PropertyRef Name="Secondname" />
+            <PropertyRef Name="Patronymic" />
+            <PropertyRef Name="Mail" />
+            <PropertyRef Name="Date_of_birthday" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="Phone" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="Photo" />
+            <PropertyRef Name="Gender" />
+          </Key>
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Secondname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_of_birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Country" Type="Byte" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Moderators">
+          <Key>
+            <PropertyRef Name="Firstname" />
+            <PropertyRef Name="Secondname" />
+            <PropertyRef Name="Patronymic" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="Mail" />
+            <PropertyRef Name="Daye_of_birthday" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="Phone" />
+            <PropertyRef Name="Direction" />
+            <PropertyRef Name="Events" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="Photo" />
+          </Key>
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Secondname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Daye_of_birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Country" Type="Byte" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Direction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Events" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organizer">
+          <Key>
+            <PropertyRef Name="Firstname" />
+            <PropertyRef Name="Secondname" />
+            <PropertyRef Name="Patronymic" />
+            <PropertyRef Name="Mail" />
+            <PropertyRef Name="Date_of_birthday" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="Phone" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="Photo" />
+            <PropertyRef Name="Gender" />
+          </Key>
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Secondname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date_of_birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Country" Type="Byte" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DemEXEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="Country" EntityType="Self.Country" />
+          <EntitySet Name="Events" EntityType="Self.Events" />
+          <EntitySet Name="Jury" EntityType="Self.Jury" />
+          <EntitySet Name="Members" EntityType="Self.Members" />
+          <EntitySet Name="Moderators" EntityType="Self.Moderators" />
+          <EntitySet Name="Organizer" EntityType="Self.Organizer" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DemEXModelContainer" CdmEntityContainer="DemEXEntities2">
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="DemEXModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="DemEXModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="The_name_of_the_country" ColumnName="The_name_of_the_country" />
+                <ScalarProperty Name="English_name" ColumnName="English_name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Code2" ColumnName="Code2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="DemEXModel.Events">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Events1" ColumnName="Events" />
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="DAYS" ColumnName="DAYS" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jury">
+            <EntityTypeMapping TypeName="DemEXModel.Jury">
+              <MappingFragment StoreEntitySet="Jury">
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Secondname" ColumnName="Secondname" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Date_of_birthday" ColumnName="Date_of_birthday" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Direction" ColumnName="Direction" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="DemEXModel.Members">
+              <MappingFragment StoreEntitySet="Members">
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Secondname" ColumnName="Secondname" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Date_of_birthday" ColumnName="Date_of_birthday" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Moderators">
+            <EntityTypeMapping TypeName="DemEXModel.Moderators">
+              <MappingFragment StoreEntitySet="Moderators">
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Secondname" ColumnName="Secondname" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Daye_of_birthday" ColumnName="Daye_of_birthday" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Direction" ColumnName="Direction" />
+                <ScalarProperty Name="Events" ColumnName="Events" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organizer">
+            <EntityTypeMapping TypeName="DemEXModel.Organizer">
+              <MappingFragment StoreEntitySet="Organizer">
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Secondname" ColumnName="Secondname" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Date_of_birthday" ColumnName="Date_of_birthday" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
