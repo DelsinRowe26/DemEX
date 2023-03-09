@@ -136,6 +136,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\pgMoreEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\pgOrganizer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Captcha.cs" />
+    <Compile Include="Model\Variables.cs" />
     <Compile Include="Pages\Auto.xaml.cs">
       <DependentUpon>Auto.xaml</DependentUpon>
     </Compile>
@@ -157,6 +162,9 @@
     </Compile>
     <Compile Include="Pages\pgModerator.xaml.cs">
       <DependentUpon>pgModerator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pgMoreEvent.xaml.cs">
+      <DependentUpon>pgMoreEvent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\pgOrganizer.xaml.cs">
       <DependentUpon>pgOrganizer.xaml</DependentUpon>

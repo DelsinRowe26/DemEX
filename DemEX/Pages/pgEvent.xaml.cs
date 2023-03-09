@@ -27,11 +27,70 @@ namespace DemEX.Pages
 
 			var events = DemEXEntities2.GetContext().Events.ToList();
 			lvEvents.ItemsSource = events;
+
+			DataContext = this;
+			UpdateData();
 		}
 
 		public string[] SortingList { get; set; } =
 		{
-			
+			"Без сортировки",
+			"IT",
+			"Биг Дата",
+			"Дизайн",
+			"Аналитика",
+			"Информационная безопасность"
 		};
+
+		private void UpdateData()
+		{
+			var result = DemEXEntities2.GetContext().Events.ToList();
+
+			if(cmbFilter.SelectedIndex == 0)
+			{
+				lvEvents.ItemsSource = result;
+			}
+			if(cmbFilter.SelectedIndex == 1)
+			{
+				result = result.OrderBy(p => p.Events1.IndexOf(cmbFilter.Text) != -1).ToList();
+			}
+			if(cmbFilter.SelectedIndex == 2)
+			{
+				result = result.OrderBy(p => p.Events1.IndexOf(cmbFilter.Text) != -1).ToList();
+			}
+			if (cmbFilter.SelectedIndex == 3)
+			{
+				result = result.OrderBy(p => p.Events1.IndexOf(cmbFilter.Text) != -1).ToList();
+			}
+			if (cmbFilter.SelectedIndex == 4)
+			{
+				result = result.OrderBy(p => p.Events1.IndexOf(cmbFilter.Text) != -1).ToList();
+			}
+			if (cmbFilter.SelectedIndex == 5)
+			{
+				result = result.OrderBy(p => p.Events1.IndexOf(cmbFilter.Text) != -1).ToList();
+			}
+
+			if (dpFilter.Text != "")
+			{
+				result = result.Where(p => p.DATE == dpFilter.Text).ToList();
+			}
+			lvEvents.ItemsSource = result;
+		}
+
+		private void cmbFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			UpdateData();
+		}
+
+		private void dpFilter_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+		{
+			UpdateData();
+		}
+
+		private void btnMore_Click(object sender, RoutedEventArgs e)
+		{
+			NavigationService.Navigate(new pgMoreEvent());
+		}
 	}
 }

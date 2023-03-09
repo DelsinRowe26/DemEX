@@ -3,11 +3,15 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:DemEX.Pages"
+      xmlns:local="clr-namespace:DemEX.Pages" xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="pgEvent" Background="White">
-
+    <Page.Resources>
+        <sys:String x:Key="defaultImage">
+            pack://application:,,,/Resources/picture.png
+        </sys:String>
+    </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220*"/>
@@ -23,8 +27,8 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
-        <ComboBox x:Name="cmbFilter" Grid.Row="1" Grid.Column="0" SelectedIndex="0" Margin="5, 0, 5, 0" VerticalAlignment="Center"/>
-        <DatePicker x:Name="dpFilter" Grid.Row="1" Grid.Column="1" Margin="5, 0, 5, 0" VerticalAlignment="Center"/>
+        <ComboBox x:Name="cmbFilter" Grid.Row="1" Grid.Column="0" SelectedIndex="0" Margin="5, 0, 5, 0" VerticalAlignment="Center" ItemsSource="{Binding SortingList}" SelectionChanged="cmbFilter_SelectionChanged"/>
+        <DatePicker x:Name="dpFilter" Grid.Row="1" Grid.Column="1" Margin="5, 0, 5, 0" VerticalAlignment="Center" SelectedDateChanged="dpFilter_SelectedDateChanged" SelectedDateFormat="Long"/>
 
         <ListView x:Name="lvEvents" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="2" Margin="5, 5, 5, 5" d:ItemsSource="{d:SampleData ItemCount=1}">
             <ListView.ItemContainerStyle>
@@ -39,10 +43,10 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="200"/>
                                 <ColumnDefinition Width="*"/>
-                                
+                                <ColumnDefinition Width="140"/>
                             </Grid.ColumnDefinitions>
 
-                            <Image x:Name="imgEvents" Width="180" Height="100" Margin="5" Source="{Binding ImgPath}"/>
+                            <Image x:Name="imgEvents" Width="180" Height="100" Margin="5" Source="{Binding ImgPath, FallbackValue={StaticResource defaultImage}}"/>
 
                             <StackPanel Grid.Column="1" Margin="5">
                                 <TextBlock x:Name="tblEventsName" Text="{Binding Events1}" FontWeight="Bold"/>
@@ -52,6 +56,8 @@
                                 </StackPanel>
                                 <TextBlock x:Name="tblCityEv" Text="{Binding CITY}"/>
                             </StackPanel>
+
+                            <Button x:Name="btnMore" Grid.Column="2" Content="Подробнее" Click="btnMore_Click"/>
                         </Grid>
                     </Border>
                 </DataTemplate>
