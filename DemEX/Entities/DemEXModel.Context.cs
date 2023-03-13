@@ -15,9 +15,6 @@ namespace DemEX.Entities
     
     public partial class DemEXEntities2 : DbContext
     {
-
-        private static DemEXEntities2 context;
-
         public DemEXEntities2()
             : base("name=DemEXEntities2")
         {
@@ -26,15 +23,6 @@ namespace DemEX.Entities
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
-        }
-
-        public static DemEXEntities2 GetContext()
-        {
-            if (context == null)
-            {
-                context = new DemEXEntities2();
-            }
-            return context;
         }
     
         public virtual DbSet<City> City { get; set; }

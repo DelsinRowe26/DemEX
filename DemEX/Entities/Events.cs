@@ -19,31 +19,5 @@ namespace DemEX.Entities
         public string DATE { get; set; }
         public byte DAYS { get; set; }
         public byte CITY { get; set; }
-
-        public string Background
-        {
-            get
-            {
-                return "#fff";
-            }
-        }
-
-        public string Sort
-        {
-            get
-            {
-                var sort = this.Events1;
-                return sort;
-            }
-        }
-
-        public string ImgPath
-        {
-            get
-            {
-                var path = "pack://application:,,,/Resources/" + this.Number + ".png";
-                return path;
-            }
-        }
-	}
+    }
 }

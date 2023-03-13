@@ -10,18 +10,17 @@
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
             <RowDefinition Height="56"/>
             <RowDefinition />
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="tblNameEvent" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Grid Grid.Row="2">
+        <TextBlock x:Name="tblNameEvent" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30*"/>
-                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Border BorderBrush="Black" BorderThickness="5"/>
             <Grid Grid.Column="0">
@@ -33,8 +32,15 @@
                 </Grid.RowDefinitions>
 
                 <Image x:Name="imgEvents" Grid.Row="0" Width="180" Height="100" Margin="5" Source="{Binding ImgPath}"/>
-                
 
+                <TextBlock Grid.Row="1" x:Name="tblDate" HorizontalAlignment="Center" Text="{Binding DATE}"/>
+                <TextBlock Grid.Row="2" x:Name="tblCity" HorizontalAlignment="Center" Text="{Binding CITY}"/>
+                <TextBlock Grid.Row="3" x:Name="tblOrg" HorizontalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Border BorderBrush="Black" BorderThickness="5"/>
+                
             </Grid>
         </Grid>
     </Grid>

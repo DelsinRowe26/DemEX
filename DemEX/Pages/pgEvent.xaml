@@ -30,7 +30,7 @@
         <ComboBox x:Name="cmbFilter" Grid.Row="1" Grid.Column="0" SelectedIndex="0" Margin="5, 0, 5, 0" VerticalAlignment="Center" ItemsSource="{Binding SortingList}" SelectionChanged="cmbFilter_SelectionChanged"/>
         <DatePicker x:Name="dpFilter" Grid.Row="1" Grid.Column="1" Margin="5, 0, 5, 0" VerticalAlignment="Center" SelectedDateChanged="dpFilter_SelectedDateChanged" SelectedDateFormat="Long"/>
 
-        <ListView x:Name="lvEvents" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="2" Margin="5, 5, 5, 5" d:ItemsSource="{d:SampleData ItemCount=1}">
+        <ListView x:Name="lvEvents" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="2" Margin="5, 5, 5, 5" d:ItemsSource="{d:SampleData ItemCount=1}" SelectionChanged="lvEvents_SelectionChanged">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>

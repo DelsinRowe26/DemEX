@@ -8,6 +8,7 @@ namespace DemEX.Model
 {
 	public static class Variables
 	{
+		public static string imgEvent;
 		public static string nameEvent;
 		public static string City;
 		public static string FirstnameOrganizer;

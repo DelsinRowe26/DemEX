@@ -1,6 +1,8 @@
 ﻿using DemEX.Entities;
+using DemEX.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -90,7 +92,19 @@ namespace DemEX.Pages
 
 		private void btnMore_Click(object sender, RoutedEventArgs e)
 		{
+			//Variables.imgEvent = 
+			
 			NavigationService.Navigate(new pgMoreEvent());
+		}
+
+		private void lvEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			var siEv = lvEvents.SelectedItems;
+			var pgME = new pgMoreEvent();
+
+			var index = siEv.IndexOf(sender);
+			pgME.DataContext = siEv;
+			NavigationService.Navigate(pgME);
 		}
 	}
 }

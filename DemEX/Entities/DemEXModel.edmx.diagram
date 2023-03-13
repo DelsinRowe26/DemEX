@@ -7,7 +7,7 @@
       <Diagram DiagramId="c1fe6bb1221b44f6b7e9caf9d1a5bb2b" Name="Diagram1">
         <EntityTypeShape EntityType="DemEXModel.City" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DemEXModel.Country" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DemEXModel.Events" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemEXModel.Events" Width="1.5" PointX="0.5" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DemEXModel.Jury" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DemEXModel.Members" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DemEXModel.Moderators" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
