@@ -77,10 +77,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Entities\City.cs">
-      <DependentUpon>DemEXModel.tt</DependentUpon>
+      <DependentUpon>ModelNewDemEX.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Country.cs">
-      <DependentUpon>DemEXModel.tt</DependentUpon>
+      <DependentUpon>ModelNewDemEX.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\DemEXModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -98,19 +98,37 @@
       <DependentUpon>DemEXModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entities\Events.cs">
-      <DependentUpon>DemEXModel.tt</DependentUpon>
+      <DependentUpon>ModelNewDemEX.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Jury.cs">
-      <DependentUpon>DemEXModel.tt</DependentUpon>
+      <DependentUpon>ModelNewDemEX.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Members.cs">
-      <DependentUpon>DemEXModel.tt</DependentUpon>
+      <DependentUpon>ModelNewDemEX.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ModelNewDemEX.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelNewDemEX.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ModelNewDemEX.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelNewDemEX.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ModelNewDemEX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelNewDemEX.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entities\Moderators.cs">
-      <DependentUpon>DemEXModel.tt</DependentUpon>
+      <DependentUpon>ModelNewDemEX.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Organizer.cs">
-      <DependentUpon>DemEXModel.tt</DependentUpon>
+      <DependentUpon>ModelNewDemEX.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sysdiagrams.cs">
+      <DependentUpon>ModelNewDemEX.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -193,6 +211,13 @@
     <None Include="Entities\DemEXModel.edmx.diagram">
       <DependentUpon>DemEXModel.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="Entities\ModelNewDemEX.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelNewDemEX.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\ModelNewDemEX.edmx.diagram">
+      <DependentUpon>ModelNewDemEX.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -221,6 +246,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DemEXModel.edmx</DependentUpon>
       <LastGenOutput>DemEXModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\ModelNewDemEX.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelNewDemEX.edmx</DependentUpon>
+      <LastGenOutput>ModelNewDemEX.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\ModelNewDemEX.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelNewDemEX.edmx</DependentUpon>
+      <LastGenOutput>ModelNewDemEX.cs</LastGenOutput>
     </Content>
     <Resource Include="Resources\14.png" />
     <Resource Include="Resources\5.png" />

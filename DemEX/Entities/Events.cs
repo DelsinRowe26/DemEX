@@ -14,10 +14,11 @@ namespace DemEX.Entities
     
     public partial class Events
     {
-        public byte Number { get; set; }
+        public int idEvent { get; set; }
+        public int Number { get; set; }
         public string Events1 { get; set; }
         public string DATE { get; set; }
-        public byte DAYS { get; set; }
-        public byte CITY { get; set; }
+        public int DAYS { get; set; }
+        public int CITY { get; set; }
     }
 }

@@ -14,13 +14,14 @@ namespace DemEX.Entities
     
     public partial class Jury
     {
+        public int idJury { get; set; }
         public string Firstname { get; set; }
         public string Secondname { get; set; }
         public string Patronymic { get; set; }
         public string Gender { get; set; }
         public string Mail { get; set; }
         public System.DateTime Date_of_birthday { get; set; }
-        public byte Country { get; set; }
+        public int Country { get; set; }
         public string Phone { get; set; }
         public string Direction { get; set; }
         public string Password { get; set; }

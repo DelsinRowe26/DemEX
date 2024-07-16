@@ -12,18 +12,12 @@ namespace DemEX.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Members
+    public partial class sysdiagrams
     {
-        public int idMembers { get; set; }
-        public string Firstname { get; set; }
-        public string Secondname { get; set; }
-        public string Patronymic { get; set; }
-        public string Mail { get; set; }
-        public System.DateTime Date_of_birthday { get; set; }
-        public int Country { get; set; }
-        public string Phone { get; set; }
-        public string Password { get; set; }
-        public string Photo { get; set; }
-        public string Gendr { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
